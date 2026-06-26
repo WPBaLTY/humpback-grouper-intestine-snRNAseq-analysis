@@ -122,7 +122,7 @@ Supplementary technical-validation figures and their source-data tables are prov
 - Supplementary Fig. S1: per-library QC distributions.
 - Supplementary Fig. S2: UMAP views by library and treatment.
 - Supplementary Fig. S3: replicate mixing and pseudobulk correlation.
-- Supplementary Fig. S5: expanded marker support.
+- Supplementary Fig. S4: expanded marker support.
 
 ## Checks To Confirm A Successful Run
 
