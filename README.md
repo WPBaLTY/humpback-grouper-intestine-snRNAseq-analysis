@@ -1,4 +1,4 @@
-# Humpback Grouper Intestine snRNA-seq Analysis Scripts
+﻿# Humpback Grouper Intestine snRNA-seq Analysis Scripts
 
 This repository contains the public R analysis scripts for the Scientific Data manuscript:
 
@@ -11,7 +11,7 @@ The scripts inspect the deposited Seurat objects, export reusable metadata table
 Large processed data files are archived on Zenodo:
 
 ```text
-https://doi.org/10.5281/zenodo.20929805
+https://doi.org/10.5281/zenodo.20945182
 ```
 
 Raw sequencing data and per-library 10x Genomics matrices are deposited in GEO under Series accession `GSE326285`.
@@ -91,3 +91,4 @@ This repository was validated on 2026-06-10 using R 4.6.0 with Seurat 5.5.0, Har
 ## Interpretation Note
 
 The composition outputs generated here are descriptive library-level summaries. This repository does not perform formal dietary-effect inference, and nuclei should not be treated as independent biological replicates for group-level testing.
+
