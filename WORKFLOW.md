@@ -13,7 +13,7 @@ No private GEO reviewer token or private Zenodo URL is stored in this repository
 Download the companion processed-data archive from Zenodo:
 
 ```text
-https://doi.org/10.5281/zenodo.20632791
+https://doi.org/10.5281/zenodo.20929805
 ```
 
 Unpack `humpback_grouper_intestine_snRNAseq_processed_data.zip` so that it is placed next to this code repository:
