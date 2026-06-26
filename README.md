@@ -11,7 +11,7 @@ The scripts inspect the deposited Seurat objects, export reusable metadata table
 Large processed data files are archived on Zenodo:
 
 ```text
-https://doi.org/10.5281/zenodo.20632791
+https://doi.org/10.5281/zenodo.20929805
 ```
 
 Raw sequencing data and per-library 10x Genomics matrices are deposited in GEO under Series accession `GSE326285`.
