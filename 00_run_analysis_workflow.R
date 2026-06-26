@@ -9,7 +9,7 @@
 #   GROUPER_ANALYSIS_OUT_DIR  Directory for all generated outputs from this run.
 #
 # This driver does not rerun Cell Ranger. It verifies the deposited Seurat
-# objects, exports final metadata, regenerates Figures 2-4, and writes a
+# objects, exports final metadata, regenerates the R-based Figures 3-5, and writes a
 # compact run summary.
 
 options(stringsAsFactors = FALSE)
@@ -109,7 +109,7 @@ run_step <- function(label, script) {
 run_step("Write R session information", "04_environment/01_write_session_info.R")
 run_step("Inspect deposited Seurat objects", "01_object_inventory/01_inspect_deposited_rds_objects.R")
 run_step("Export final metadata tables", "02_export_metadata/01_export_submission_metadata.R")
-run_step("Regenerate Figures 2-4", "03_make_figures/01_make_submission_figures.R")
+run_step("Regenerate Figures 3-5", "03_make_figures/01_make_submission_figures.R")
 
 count_csv_rows <- function(path) {
   if (!file.exists(path)) stop("Expected output is missing: ", path)
@@ -149,11 +149,17 @@ expected_outputs <- c(
   umap_file,
   cluster_file,
   file.path(metadata_out, "celltype_counts_by_library.csv"),
-  file.path(figure_out, "Figure2_global_annotation_final.png"),
-  file.path(figure_out, "Figure3_immune_reclustering_final.png"),
-  file.path(figure_out, "Figure4_composition_final.png"),
-  file.path(figure_out, "figure_source_data", "figure4_major_celltype_composition.csv"),
-  file.path(figure_out, "figure_source_data", "figure4_immune_subtype_composition.csv")
+  file.path(figure_out, "Figure3_global_annotation_final.png"),
+  file.path(figure_out, "Figure3_global_annotation_final.tiff"),
+  file.path(figure_out, "Figure3_global_annotation_final.pdf"),
+  file.path(figure_out, "Figure4_immune_reclustering_final.png"),
+  file.path(figure_out, "Figure4_immune_reclustering_final.tiff"),
+  file.path(figure_out, "Figure4_immune_reclustering_final.pdf"),
+  file.path(figure_out, "Figure5_composition_final.png"),
+  file.path(figure_out, "Figure5_composition_final.tiff"),
+  file.path(figure_out, "Figure5_composition_final.pdf"),
+  file.path(figure_out, "figure_source_data", "figure5_major_celltype_composition.csv"),
+  file.path(figure_out, "figure_source_data", "figure5_immune_subtype_composition.csv")
 )
 missing_outputs <- expected_outputs[!file.exists(expected_outputs) | file.info(expected_outputs)$size == 0]
 if (length(missing_outputs) > 0) {
