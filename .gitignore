@@ -1,0 +1,39 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+
+# Python/R caches
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+.Rproj.user/
+.r-library/
+.r-library-doublet/
+
+# Large sequencing and analysis objects
+*.fastq
+*.fastq.gz
+*.bam
+*.bai
+*.mtx
+*.mtx.gz
+*.h5
+*.h5ad
+*.rds
+*.RDS
+*.loom
+
+# Private review or submission material
+*token*
+*reviewer*
+*private*
+
+# Generated figures and tables
+outputs/figures/
+outputs/tables/
+outputs/global_atlas_reconstruction/
+outputs/immune_final_reconstruction/
+external_inputs/
