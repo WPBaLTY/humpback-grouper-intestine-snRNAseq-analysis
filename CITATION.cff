@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this code, cite the accompanying Scientific Data article and the final Zenodo DOI."
+title: "Analysis code for a humpback grouper intestine snRNA-seq atlas"
+type: software
+authors:
+  - name: "Humpback grouper snRNA-seq manuscript authors"
+repository-code: "https://github.com/WPBaLTY/humpback-grouper-intestine-snRNAseq-analysis"
+license: MIT

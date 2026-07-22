@@ -1,0 +1,4 @@
+package,version,cran_archive_url,source_tarball_sha256
+SeuratObject,5.2.0,https://cran.r-project.org/src/contrib/Archive/SeuratObject/SeuratObject_5.2.0.tar.gz,285CAD1503914230F58F33BE76C5D939FC192F373ECB239794D6E3B9EBFD162B
+harmony,1.2.3,https://cran.r-project.org/src/contrib/Archive/harmony/harmony_1.2.3.tar.gz,9AB815AB0260A6726B2BB48DE3FA4C3CAD36ACBE9AC6158D515FB16EA66BBDDD
+Seurat,5.3.0,https://cran.r-project.org/src/contrib/Archive/Seurat/Seurat_5.3.0.tar.gz,12ABAF6CEA4AA30F73028387E74ECB405B17ACBAE414D43522E764F3179908A7

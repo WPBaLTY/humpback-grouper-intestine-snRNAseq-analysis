@@ -1,94 +1,47 @@
-﻿# Humpback Grouper Intestine snRNA-seq Analysis Scripts
+# Humpback grouper intestine snRNA-seq analysis code
 
-This repository contains the public R analysis scripts for the Scientific Data manuscript:
+This repository contains the code and validation workflow that support the Scientific Data Data Descriptor on a humpback grouper (*Cromileptes altivelis*) intestine single-nucleus RNA-seq atlas.
 
-**A single-nucleus transcriptomic atlas of the humpback grouper (*Cromileptes altivelis*) intestine across dietary supplementation conditions**
+## Repository role
 
-The scripts inspect the deposited Seurat objects, export reusable metadata tables, and regenerate the R-based manuscript figures from the processed-data archive. This repository does not contain raw FASTQ files, Cell Ranger matrices, Seurat objects, reviewer tokens, or private download links.
+This is the **code and executable reproducibility repository**. It is not the formal processed-data record.
 
-## Data Archive
+- Raw FASTQ files and per-library 10x matrices are in GEO/SRA under `GSE326285`.
+- Processed data and large reusable objects are in Zenodo DOI `10.5281/zenodo.21481391`.
+- This repository supplies scripts, environment records, run order and validators.
+- The validators automatically read data from a sibling `zenodo_processed_data_record/` directory when the Zenodo package is unpacked next to this repository.
 
-Large processed data files are archived on Zenodo:
+## Main contents
 
-```text
-https://doi.org/10.5281/zenodo.20945182
-```
+- `scripts/`: R analysis, Python figure assembly, source-data preparation and validators.
+- `environment/`: R/Python environment records and install helpers.
+- `metadata/`: code-archive metadata template and script manifest.
+- `manifest/files_manifest.csv`: file sizes and SHA256 values.
 
-Raw sequencing data and per-library 10x Genomics matrices are deposited in GEO under Series accession `GSE326285`.
-
-Download and unpack `humpback_grouper_intestine_snRNAseq_processed_data.zip`. The processed-data archive includes:
-
-- `integrated_object/grouper_intestine_snRNAseq_seurat.rds`
-- `integrated_object/grouper_intestine_immune_reclustering_seurat.rds`
-- `sample_metadata.csv`, `cell_metadata.csv` and `umap_coordinates.csv`
-- cluster annotation summaries and marker-gene tables
-- figure source-data tables and final figure files
-- supplementary tables and technical-validation source data, when provided in the updated archive
-
-By default, place the unpacked data folder next to this code repository:
-
-```text
-project_directory/
-  analysis_code/
-  humpback_grouper_intestine_snRNAseq_processed_data/
-```
-
-If the data folder is elsewhere, set `GROUPER_DATA_DIR` before running the scripts:
-
-```r
-Sys.setenv(GROUPER_DATA_DIR = "D:/path/to/humpback_grouper_intestine_snRNAseq_processed_data")
-```
-
-## Quick Start
-
-Install missing R packages if needed:
+## Quick validation
 
 ```bash
-Rscript 00_setup/00_install_required_packages.R
+python -B scripts/validate_release_package.py
 ```
 
-Run the complete analysis workflow from the repository root:
+Run this after unpacking `humpback-grouper-intestine-snRNAseq-processed-data-record.zip` as a sibling directory named `zenodo_processed_data_record`.
+
+For the full deterministic figure check on the tested Windows stack:
 
 ```bash
-Rscript 00_run_analysis_workflow.R
+conda env create -f environment/figure_environment_win-64.yml
+conda activate grouper-figure-win64
+python -B scripts/validate_release_package.py --check-r --run-figures
 ```
 
-The workflow writes a timestamped `analysis_run_*/` directory containing session information, RDS inventory summaries, metadata exports, generated figures, logs and `RUN_SUMMARY.txt`.
+Generated figure outputs are written to `outputs/figures/` and are ignored by Git.
 
-## Repository Structure
+## Boundary
 
-- `00_run_analysis_workflow.R`: one-command analysis workflow.
-- `00_setup/`: package setup helper.
-- `01_object_inventory/`: deposited Seurat object inspection.
-- `02_export_metadata/`: public metadata and annotation table export.
-- `03_make_figures/`: regeneration of manuscript Figures 3, 4 and 5 from the deposited Seurat objects.
-- `04_environment/`: R session information and package notes.
+The executable reconstruction begins at the deposited eight per-library 10x feature-barcode matrices. Byte-exact FASTQ-to-matrix realignment is not claimed because the historical combined FASTA and exact 2 kb 3-prime UTR-extended GTF are not available in this release.
 
-See `WORKFLOW.md` for detailed inputs, outputs and figure-generation scope.
+## Citation and metadata
 
-## Figure Scope
+The file `metadata/zenodo_code_archive_metadata_template.json` is a template for archiving this code release, not active metadata for the Zenodo processed-data record. Replace its creator list with the final manuscript author order, affiliations and verified ORCIDs before creating a citable code archive.
 
-The final manuscript figure set is organized as follows:
-
-- Figure 1: experimental and snRNA-seq workflow, prepared as a standalone final figure file.
-- Figure 2: sequencing and per-library quality-control summary, prepared from sequencing and Cell Ranger metric tables.
-- Figure 3: global clustering and major cell-type annotation, regenerated by this repository.
-- Figure 4: immune-cell reclustering and marker support, regenerated by this repository.
-- Figure 5: sample-level major lineage and immune-subtype composition, regenerated by this repository.
-
-Additional QC, UMAP, replicate-mixing and expanded marker-support outputs are provided as supplementary figures and source-data tables with the manuscript data package.
-
-## Software
-
-The manuscript analysis used:
-
-- Cell Ranger v5.0.0 for primary count generation.
-- R v4.4.0 for downstream analysis and visualization.
-- Seurat v5.3.0 and Harmony v0.1 for integration and downstream analysis.
-
-This repository was validated on 2026-06-10 using R 4.6.0 with Seurat 5.5.0, Harmony 2.0.4, ggplot2 4.0.3, patchwork 1.3.2 and scales 1.4.0. The workflow recovered 102,036 nuclei, 27 global clusters and 1,347 global-cluster-14 acinar-like nuclei.
-
-## Interpretation Note
-
-The composition outputs generated here are descriptive library-level summaries. This repository does not perform formal dietary-effect inference, and nuclei should not be treated as independent biological replicates for group-level testing.
-
+Code is MIT licensed. Source-data tables and processed-data records in Zenodo are CC BY 4.0 unless otherwise stated by the final Zenodo record.

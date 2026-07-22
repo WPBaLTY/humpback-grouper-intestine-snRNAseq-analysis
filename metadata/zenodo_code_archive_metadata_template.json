@@ -1,0 +1,26 @@
+{
+  "title": "Code, source data, and audit records for humpback grouper intestine snRNA-seq",
+  "description": "Version 2026-07-21 contains scripts, metadata, processed source data, deterministic figure outputs, and machine-readable audits supporting Scientific Data Figures 2-5 and Supplementary Figures S1-S3 for humpback grouper intestine single-nucleus RNA sequencing. This version standardizes Figure 5 and supplementary display labels, embeds Arial TrueType fonts, preserves vector text and axes, and raises rasterized S2/S3 PDF layers to 600 dpi without changing source counts, proportions, coordinates, or sample order. Starting from the eight GEO per-library 10x matrices, the locked environment reproduces 102,036 retained nuclei, all 27 global clusters, exact sparse RNA counts, the 10,440-to-5,061 immune refinement, and the final Figure 4 annotations. Supplementary Figure S1 closes nucleus-level QC to the final 102,036 public cell IDs; Supplementary Figure S3 provides an auditable 23,738-feature by eight-library log2(CPM + 1) matrix from which the validator recomputes all Pearson correlations. The release also SHA256-locks eight Cell Ranger reports and closes 26,121 nuclear plus 13 mitochondrial genes to the ordered 26,134-row reference feature table. The original combined FASTA and exact 2 kb 3-prime UTR-extended GTF remain outside the archive, so byte-exact FASTQ realignment is not claimed. scDblFinder calls are retrospective validation diagnostics, and the 5,379 excluded immune-branch nuclei are not described as 5,379 doublets. Figure 1 remains outside the regeneration scope.",
+  "creators": [
+    {
+      "name": "Humpback grouper snRNA-seq manuscript authors",
+      "affiliation": "School of Marine Biology and Aquaculture, Hainan University"
+    }
+  ],
+  "keywords": [
+    "Cromileptes altivelis",
+    "single-nucleus RNA sequencing",
+    "intestine",
+    "leukocyte reclustering",
+    "functional feed",
+    "aquaculture",
+    "reproducible research",
+    "Cell Ranger",
+    "reference provenance",
+    "scDblFinder",
+    "single-nucleus transcriptomics",
+    "pseudobulk expression",
+    "supplementary figures"
+  ],
+  "license": "cc-by-4.0"
+}
