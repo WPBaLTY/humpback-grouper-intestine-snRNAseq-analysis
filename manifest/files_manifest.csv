@@ -37,5 +37,5 @@
 "scripts/python_figure_assembly/rebuild_scientific_data_figure4_immune_reclustering.py","7165","098d6a06b3677e96dc666d6c758d5426b924239f43dee4fbf1720d522b415f01"
 "scripts/python_figure_assembly/rebuild_scientific_data_figure5_composition.py","10352","520290abf27b2e9da9d1c6b3105731062c7fe9fe878e13e10933b026f6e1f812"
 "scripts/python_figure_assembly/rebuild_scientific_data_supplementary_figures.py","13890","d0b21c2d51f8170862352fe976625520a0e15db3cbd3d9c4a70a6f986c01c935"
-"scripts/validate_release_package.py","56219","e1ea8ad32efb2f9be36c84c00069a41b95ba715cdf30cf30d0645ddb9602821a"
+"scripts/validate_release_package.py","56687","743913117b2c42f9d0367172f4da1556266f0b887cb9b01047f0adb7932f3bce"
 "scripts/validate_submission_artifacts.py","19441","bb376547602d7e3f0121c193ff8d0c95d930088df851705f6c3a42cc61e1b021"
